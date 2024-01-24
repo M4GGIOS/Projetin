@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Frozen Sorvetes</title>
+        <title>Freeze Sorvetes</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" />
         <link rel="stylesheet" href="css/estiloformularios.css" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/mobile.css" />
