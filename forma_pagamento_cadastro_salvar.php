@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Frozen Sorvetes</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -31,30 +30,29 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
         <script src="js_bootstrap/bootstrap.min.js"></script>
-    </head>
-    <body>
+<body>
+    <?php 
+    include 'header_admin.php';
+      //1° PASSO: Incluir o arquivo de conexão de dados
+      include('conexao_bd.php');
 
-        <!-- CABEÇALHO -->
-        <?php include 'header_admin.php' ?>
-         <form action="forma_pagamento_cadastro_salvar.php" method="post">
-        <div id="body" class="contact">
-            <div class="footer">
-                <div class="contact">
-                    <h1>CADASTRAR FORMAS DE PAGAMENTOS</h1>
+      //2° PASSO: Capturar os valores de entrada de dados
+      $txtDescricao = $_POST["txtDescricao"];
+      
+      //3° PASSO: Escrever o comando SQL
+      $sql = "INSERT INTO forma_pagamento(descricao) values ('txtDescricao')";
+      if (executarComando($sql)){
+        echo "<h2>Cadastro realizado com sucesso!</h2>";
+      } else {
+        echo "<h2>Houve um erro no cadastro!</h2>";
+      }
 
-                    <ol>
-                        <li>
-                            <input type="text" name="txtDescricao" class="textbox" placeholder="Descrição da forma de pagamento" /></li>
-                        <li>
-                            <input type="submit" name="btSalvar" value="Enviar" class="botao" />
-                        </li>
-                    </ol>
+    ?>
+    <a href="forma_pagamento_cadastro.php">
+        <input type="buton" value="Voltar" class="botao">
 
-                </div>
-            </div>
-        </div>
-         </form>
-        <!-- RODAPÉ -->
-        <?php include 'footer_admin.php' ?>
-    </body>
+        <?php
+        include 'footer_admin.php';
+        ?>
+</body>
 </html>
